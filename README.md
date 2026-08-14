@@ -10,7 +10,7 @@ Este repositório **não é um projeto pronto**. Ele contém a estrutura inicial
 
 > **Professor:** substitua os três placeholders abaixo pelos links oficiais antes de disponibilizar o repositório aos alunos.
 
-- 📊 **Aula 01 — Definição do Projeto:** [`INSERIR_LINK_PPT_AULA_01`](https://docs.google.com/presentation/d/1ooSOhHy7P4sLNeCdVd0QGIS4AEnzlNMK/edit?usp=sharing&ouid=112595941029232116373&rtpof=true&sd=true)
+- 📊 **Aula 01 — Definição do Projeto:** [`INSERIR_LINK_PPT_AULA_01`](https://docs.google.com/presentation/d/1aHc31MrEDHxEBw8pOtDuAwAxgzIZJi4l/edit?usp=sharing&ouid=112595941029232116373&rtpof=true&sd=true)
 - 🌿 **Aula 02 — Git e GitHub:** [`INSERIR_LINK_PPT_AULA_02`](https://docs.google.com/presentation/d/1ooSOhHy7P4sLNeCdVd0QGIS4AEnzlNMK/edit?usp=sharing&ouid=112595941029232116373&rtpof=true&sd=true)
 - 📚 **Notion da disciplina:** [`LINK_NOTION_DISCIPLINA`](https://deluxe-blue-bc1.notion.site/Projeto-Integrador-II-Aplica-o-Web-Din-mica-305dfca74d8d80ee9cf3dbbb08257c7c?source=copy_link)
 
