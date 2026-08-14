@@ -1,0 +1,18 @@
+# ==========================================================
+# CODEOWNERS — TEMPLATE PARA A EQUIPE
+# ==========================================================
+#
+# Este arquivo veio configurado como MODELO.
+# Depois de criar a Organization e definir os usuários da equipe,
+# substitua os exemplos abaixo pelos @usernames corretos e remova o #.
+#
+# Exemplos:
+#
+# *                         @usuario-project-lead
+# /frontend/                @usuario-frontend-lead @usuario-design-lead
+# /backend/                 @usuario-backend-lead
+# /database/                @usuario-backend-lead
+# /docs/                    @usuario-project-lead
+# /.github/                 @usuario-project-lead
+#
+# Não deixe usuários fictícios ativos neste arquivo.

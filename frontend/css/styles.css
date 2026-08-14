@@ -1,0 +1,22 @@
+/*
+ * CSS inicial do template.
+ * Substitua estas regras pela identidade visual definida pela equipe no Figma.
+ */
+
+:root {
+    --project-bg: #f8f9fa;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#inicio {
+    min-height: 62vh;
+    display: flex;
+    align-items: center;
+}

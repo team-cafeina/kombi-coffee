@@ -1,0 +1,55 @@
+name: "⚙️ Task técnica"
+description: "Registre uma tarefa técnica de estrutura, refatoração, banco ou configuração"
+title: "[TASK] "
+labels: []
+assignees: []
+
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto
+      description: Explique a necessidade técnica.
+      placeholder: "Ex.: A conexão com o banco está duplicada em várias páginas."
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo
+      description: Qual resultado técnico deverá ser alcançado?
+      placeholder: "Ex.: Centralizar a conexão PDO em um único arquivo de configuração."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Escopo
+      description: Liste as alterações previstas.
+      placeholder: |
+        - Criar arquivo de conexão
+        - Atualizar páginas que acessam o banco
+        - Remover código duplicado
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto
+      description: Quais áreas do projeto podem ser afetadas?
+      placeholder: "Ex.: Login, área administrativa e CRUD de serviços."
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de aceitação
+      placeholder: |
+        - [ ] Implementação concluída
+        - [ ] Testada no XAMPP
+        - [ ] Código revisado
+        - [ ] README atualizado, se necessário
+    validations:
+      required: true

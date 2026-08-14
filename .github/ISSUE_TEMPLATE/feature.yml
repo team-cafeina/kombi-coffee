@@ -1,0 +1,63 @@
+name: "✨ Nova funcionalidade"
+description: "Proponha ou registre uma nova funcionalidade do projeto"
+title: "[FEATURE] "
+labels: ["enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Nova funcionalidade
+        Descreva a necessidade com clareza antes de iniciar o desenvolvimento.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto
+      description: Qual problema ou necessidade motivou esta funcionalidade?
+      placeholder: "Ex.: O administrador precisa cadastrar novos serviços oferecidos pela empresa."
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo
+      description: O que deverá existir ao final desta implementação?
+      placeholder: "Ex.: Criar o cadastro de serviços na área administrativa."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Escopo
+      description: Liste o que faz parte desta entrega.
+      placeholder: |
+        - Criar formulário
+        - Validar campos obrigatórios
+        - Salvar no MySQL
+        - Exibir mensagem de sucesso
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de aceitação
+      description: Como a equipe saberá que a tarefa está concluída?
+      placeholder: |
+        - [ ] Usuário consegue cadastrar um serviço
+        - [ ] Dados são persistidos no MySQL
+        - [ ] Campos obrigatórios são validados
+        - [ ] Interface segue o Figma
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Referências
+      description: Adicione links para Figma, cards, outras Issues ou materiais relacionados.
+      placeholder: "Ex.: Figma: ... | Card: ... | Issue relacionada: #..."
