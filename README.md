@@ -2,7 +2,7 @@
 
 > Repositório-base da disciplina para iniciar o Projeto Integrador utilizando **PHP puro, MySQL, phpMyAdmin, HTML, CSS, JavaScript, Bootstrap, XAMPP, Git e GitHub**.
 
-Este repositório **não é um projeto pronto**. Ele contém a estrutura inicial, exemplos, templates e orientações que cada equipe deverá adaptar para o próprio projeto.
+Este repositório **não é um projeto pronto**. Ele contém a estrutura inicial, exemplos, templates e orientações que cada equipe deverá adaptar para o próprio projeto
 
 ---
 
