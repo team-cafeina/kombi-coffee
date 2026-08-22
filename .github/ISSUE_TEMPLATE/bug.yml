@@ -1,0 +1,110 @@
+name: "🐞 Bug Report"
+description: "Report a problem, unexpected behavior, or system error"
+title: "[BUG] "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐞 Bug Report
+
+        Thank you for helping improve this project!  
+        Please provide as much detail as possible so we can reproduce and fix the issue quickly.
+
+        **Tips for a good report**
+        - Be specific and clear
+        - Include steps to reproduce the issue
+        - Attach screenshots or logs if possible
+        - Describe what you expected vs what actually happened
+
+  - type: textarea
+    id: problem_description
+    attributes:
+      label: 📋 Problem Description
+      description: Clearly describe the bug you encountered.
+      placeholder: |
+        Example:
+        When submitting the login form, the system returns a 500 error instead of authenticating the user.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: 🔁 Steps to Reproduce
+      description: Provide detailed steps so we can reproduce the issue.
+      placeholder: |
+        1. Go to the login page
+        2. Enter valid credentials
+        3. Click "Login"
+        4. Observe the error message
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: ✅ Expected Behavior
+      description: What should happen when the feature works correctly?
+      placeholder: |
+        Example:
+        The user should be successfully logged in and redirected to the dashboard.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: ❌ Actual Behavior
+      description: What actually happened instead?
+      placeholder: |
+        Example:
+        The system returns a 500 error and displays "Internal Server Error".
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 📎 Evidence (Screenshots, Logs, Errors)
+      description: Attach screenshots, logs, stack traces, or error messages.
+      placeholder: |
+        Example:
+        - Screenshots of the issue
+        - Error logs
+        - Stack trace
+        - Console output
+
+  - type: input
+    id: environment
+    attributes:
+      label: 💻 Environment
+      description: Provide details about the environment where the bug occurred.
+      placeholder: |
+        Example: 
+        OS: Windows 11
+        Browser: Chrome 121
+        Node: 18.x
+        App version: 1.3.2
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 🧩 Additional Context
+      description: Add any other information that may help understand the problem.
+      placeholder: |
+        Example:
+        The issue started after the last deployment.
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✔ Acceptance Criteria
+      description: Conditions required to consider this bug resolved.
+      options:
+        - label: The bug has been fixed
+        - label: The fix has been tested in a development environment
+        - label: The change does not introduce regressions
+        - label: Relevant tests were added or updated

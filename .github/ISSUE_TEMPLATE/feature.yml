@@ -1,0 +1,97 @@
+name: "✨ Feature Request"
+description: "Suggest a new feature or improvement for the project"
+title: "[FEATURE] "
+labels: ["enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ Feature Request
+
+        Thank you for suggesting a new feature!
+
+        Feature requests help improve the project and make it more useful for everyone.
+
+        **Before submitting**
+        - Check if a similar feature request already exists
+        - Provide clear details about the problem and the proposed solution
+        - Include examples or references when possible
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 📌 Context
+      description: Describe the problem or opportunity that motivated this feature request.
+      placeholder: |
+        Example:
+        Users currently cannot export reports as CSV files, which makes it difficult to analyze data outside the application.
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: 🎯 Objective
+      description: Clearly explain what should be implemented.
+      placeholder: |
+        Example:
+        Add an option to export reports as CSV or Excel files directly from the dashboard.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 📦 Scope
+      description: List the main functionalities or parts included in this feature.
+      placeholder: |
+        Example:
+        - Add export button in the report page
+        - Generate CSV file from report data
+        - Allow Excel export format
+        - Add download notification
+
+  - type: textarea
+    id: technical_requirements
+    attributes:
+      label: ⚙ Technical Requirements
+      description: List technical requirements, dependencies, or implementation details.
+      placeholder: |
+        Example:
+        - Integration with reporting API
+        - Use backend service to generate files
+        - Update frontend UI to include export options
+        - Ensure compatibility with existing report filters
+
+  - type: textarea
+    id: references
+    attributes:
+      label: 🔗 References
+      description: Add links to related issues, documentation, designs, or external examples.
+      placeholder: |
+        Example:
+        - Related issue: #42
+        - Design mockup: https://figma.com/example
+        - Similar feature: https://example.com/docs/export
+
+  - type: textarea
+    id: value
+    attributes:
+      label: 💡 Value / Impact
+      description: Explain how this feature will benefit users or the project.
+      placeholder: |
+        Example:
+        This feature will allow users to analyze data in external tools such as Excel or BI platforms.
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✔ Acceptance Criteria
+      description: Conditions required to consider this feature complete.
+      options:
+        - label: Feature implemented according to the described scope
+        - label: Implementation tested in development environment
+        - label: No regressions introduced
+        - label: Documentation updated if necessary

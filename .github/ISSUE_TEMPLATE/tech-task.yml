@@ -1,0 +1,92 @@
+name: "⚙ Technical Task"
+description: "Technical work such as refactoring, performance improvements, or architectural changes"
+title: "[TASK] "
+labels: ["task"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚙ Technical Task
+
+        Use this template to register **technical work** related to internal improvements in the project.
+
+        Examples include:
+        - Code refactoring
+        - Performance optimization
+        - Codebase organization
+        - Architecture improvements
+        - Infrastructure changes
+        - Dependency updates
+
+        These tasks usually **do not introduce new features**, but improve maintainability, stability, or scalability.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 📌 Context
+      description: Describe the technical need or problem that motivates this task.
+      placeholder: |
+        Example:
+        The authentication module has grown significantly and now contains duplicated logic,
+        making it harder to maintain and test.
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: 🎯 Objective
+      description: Explain clearly what should be achieved after completing this task.
+      placeholder: |
+        Example:
+        Refactor the authentication module to separate responsibilities and improve code readability.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 📦 Scope
+      description: List the main technical activities included in this task.
+      placeholder: |
+        Example:
+        - Extract authentication logic into dedicated services
+        - Remove duplicated code
+        - Improve folder structure
+        - Update related tests
+
+  - type: textarea
+    id: technical_requirements
+    attributes:
+      label: 🧰 Technical Requirements
+      description: List technologies, dependencies, or constraints involved in this task.
+      placeholder: |
+        Example:
+        - Update dependencies to latest stable versions
+        - Maintain compatibility with current API
+        - Follow project architecture guidelines
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 🔍 Impact
+      description: Describe how this task may affect the system.
+      placeholder: |
+        Example:
+        - Improves maintainability
+        - Reduces technical debt
+        - Improves performance in authentication flows
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✔ Acceptance Criteria
+      description: Conditions required to consider this task complete.
+      options:
+        - label: Implementation completed according to scope
+        - label: Code reviewed and approved
+        - label: Changes tested in development environment
+        - label: Code follows project standards and conventions
+        - label: Related tests updated or added if necessary
