@@ -6,51 +6,51 @@
 
 Este arquivo concentra as informações que definem o projeto antes do desenvolvimento começar. Ele evita decisões soltas em mensagens, protege o escopo e ajuda a equipe a manter o mesmo entendimento sobre a solução.
 
-## Equipe
-
-**Nome da equipe:**
+## Equipe: Team-Cafeína
 
 **Integrantes:**
 
 | Nome | GitHub | Responsabilidade |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+|Isabel Yuki | isabelyagama | Design Lead |
+|Keven Mendonça | Keuww7 | Back-end Lead |
+|Guilherme Gomes | Guilherme10OK |Project Management Lead  |
+|Melyssa Aguiar  | asylemw | Front-end Lead |
 
 ## Aplicação
 
-**Nome:**
+**Nome:** Kombi-Coffee
 
-**Segmento:**
+**Segmento:** Cafeteria
 
-**Problema:**
+**Problema:** A KOMBI Coffee possui processos operacionais predominantemente analógicos, utilizando papel, post-its, cardápio físico e atendimento exclusivo no caixa. Isso gera perda de comandas, lentidão no atendimento, baixo controle de estoque e limita o alcance dos produtos da marca.
 
-**Público-alvo:**
+**Público-alvo:** Microempreendedora responsável pela gestão da cafeteria e equipe operacional, além dos clientes que utilizam o cardápio digital e o e-commerce.
 
-**Objetivo:**
+**Objetivo:-**
+-Criar um cardápio digital para permitir que os clientes realizem pedidos sem precisar se dirigir ao caixa;
+-Criar uma área no site para venda de produtos da cafeteria;
+-Melhorar o controle de entrada e saída de produtos para definição de métricas.
 
 ## Funcionalidades iniciais
 
-- 
-- 
-- 
+- Cardápio digital acessado por QR Code, permitindo que o cliente visualize os produtos e faça pedidos diretamente da mesa;
+- E-commerce para venda de produtos da marca, com catálogo, carrinho e checkout;
+- Controle de estoque com registro de entradas, saídas e alertas de estoque mínimo.
+
 
 ## Entidades iniciais do banco
 
-1. 
-2. 
+1. Cliente
+2. Pedido
 
 **Relacionamento esperado:**
 
-```text
-ENTIDADE_A (1) -------- (N) ENTIDADE_B
-```
+ Cliente (1) -------- (N) Pedido
 
 ## Links
 
-- Figma:
-- Board:
-- Organization:
-- Repositório:
+- Figma: A definir 
+- Board: https://trello.com/invite/b/6a8cd6892c73e42266d3f9b0/ATTI8b3c0e6dc9e23cc7a95c11b87a4acd04A4FEC07A/team-cafeina
+- Organization: https://github.com/team-cafeina
+- Repositório: https://github.com/team-cafeina/kombi-coffee
