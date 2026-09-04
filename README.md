@@ -597,8 +597,8 @@ A aplicação deverá ser:
 
 - 🎨 **Figma:** https://www.figma.com/design/G4ler28A4wUx2lvPXFVH4t/Sem-t%C3%ADtulo?node-id=0-1&t=sx8cJzA542OYGBRw-1
 - 📋 **Board de tarefas:** https://trello.com/b/weNEFnFh/team-cafeina`
-- 🐙 **GitHub Organization:** `INSERIR_LINK_ORGANIZATION`
-- 📦 **Repositório:** `INSERIR_LINK_REPOSITORIO`
+- 🐙 **GitHub Organization:** https://github.com/team-cafeina
+- 📦 **Repositório:** https://github.com/team-cafeina/kombi-coffee
 
 ---
 
