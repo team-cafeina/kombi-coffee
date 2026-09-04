@@ -28,9 +28,9 @@ Este arquivo concentra as informações que definem o projeto antes do desenvolv
 **Público-alvo:** Microempreendedora responsável pela gestão da cafeteria e equipe operacional, além dos clientes que utilizam o cardápio digital e o e-commerce.
 
 **Objetivo:-**
--Criar um cardápio digital para permitir que os clientes realizem pedidos sem precisar se dirigir ao caixa;
--Criar uma área no site para venda de produtos da cafeteria;
--Melhorar o controle de entrada e saída de produtos para definição de métricas.
+Criar um cardápio digital para permitir que os clientes realizem pedidos sem precisar se dirigir ao caixa;
+Criar uma área no site para venda de produtos da cafeteria;
+Melhorar o controle de entrada e saída de produtos para definição de métricas.
 
 ## Funcionalidades iniciais
 
@@ -50,7 +50,7 @@ Este arquivo concentra as informações que definem o projeto antes do desenvolv
 
 ## Links
 
-- Figma: A definir 
+- Figma: https://www.figma.com/design/G4ler28A4wUx2lvPXFVH4t/Sem-t%C3%ADtulo?node-id=0-1&t=sx8cJzA542OYGBRw-1
 - Board: https://trello.com/invite/b/6a8cd6892c73e42266d3f9b0/ATTI8b3c0e6dc9e23cc7a95c11b87a4acd04A4FEC07A/team-cafeina
 - Organization: https://github.com/team-cafeina
 - Repositório: https://github.com/team-cafeina/kombi-coffee
