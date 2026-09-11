@@ -608,10 +608,10 @@ A aplicação deverá ser:
 
 | Integrante | GitHub | Responsabilidade principal |
 |---|---|---|
-| Nome 01 | `@usuario` | Back-end Lead |
-| Nome 02 | `@usuario` | Front-end Lead |
-| Nome 03 | `@usuario` | Design Lead |
-| Nome 04 | `@usuario` | Project Management Lead |
+| Keven Mendonça | Keuww7 | Back-end Lead |
+| Melyssa Aguiar| asylemw| Front-end Lead |
+| Isabel Yuki |isabelyagama| Design Lead |
+| Guilherme Gomes | Guilherme10OK| Project Management Lead |
 
 ---
 
