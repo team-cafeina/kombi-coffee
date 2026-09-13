@@ -600,6 +600,10 @@ A aplicação deverá ser:
 - 🐙 **GitHub Organization:** https://github.com/team-cafeina
 - 📦 **Repositório:** https://github.com/team-cafeina/kombi-coffee
 
+## Documentação do projeto
+
+- [Project Exchange](docs/project-exchange.md)
+
 ---
 
 # Equipe
