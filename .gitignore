@@ -5,6 +5,7 @@
 .env.*
 !.env.example
 backend/config/database.php
+backend/config/connection.php
 
 # ==========================================================
 # IDEs e editores
