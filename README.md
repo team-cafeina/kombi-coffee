@@ -595,10 +595,14 @@ A aplicação deverá ser:
 
 > A equipe deverá atualizar esta seção.
 
-- 🎨 **Figma:** `INSERIR_LINK_FIGMA`
-- 📋 **Board de tarefas:** `INSERIR_LINK_BOARD`
-- 🐙 **GitHub Organization:** `INSERIR_LINK_ORGANIZATION`
-- 📦 **Repositório:** `INSERIR_LINK_REPOSITORIO`
+- 🎨 **Figma:** https://www.figma.com/design/G4ler28A4wUx2lvPXFVH4t/Sem-t%C3%ADtulo?node-id=0-1&t=sx8cJzA542OYGBRw-1
+- 📋 **Board de tarefas:** https://trello.com/b/weNEFnFh/team-cafeina`
+- 🐙 **GitHub Organization:** https://github.com/team-cafeina
+- 📦 **Repositório:** https://github.com/team-cafeina/kombi-coffee
+
+## Documentação do projeto
+
+- [Project Exchange](docs/project-exchange.md)
 
 ---
 
@@ -608,10 +612,10 @@ A aplicação deverá ser:
 
 | Integrante | GitHub | Responsabilidade principal |
 |---|---|---|
-| Nome 01 | `@usuario` | Back-end Lead |
-| Nome 02 | `@usuario` | Front-end Lead |
-| Nome 03 | `@usuario` | Design Lead |
-| Nome 04 | `@usuario` | Project Management Lead |
+| Keven Mendonça | Keuww7 | Back-end Lead |
+| Melyssa Aguiar| asylemw| Front-end Lead |
+| Isabel Yuki |isabelyagama| Design Lead |
+| Guilherme Gomes | Guilherme10OK| Project Management Lead |
 
 ---
 
