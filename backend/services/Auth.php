@@ -73,26 +73,17 @@ final class Auth
 
     /**
      * Encerra a sessão do usuário.
+     *
+     * Os dados são limpos e o id da sessão é regenerado. Mantemos a sessão
+     * ativa para conseguir exibir a mensagem de "sessão encerrada" no login.
      */
     public function logout(): void
     {
         $_SESSION = [];
 
-        if (ini_get('session.use_cookies') && !headers_sent()) {
-            $params = session_get_cookie_params();
-
-            setcookie(
-                session_name(),
-                '',
-                time() - 42000,
-                $params['path'],
-                $params['domain'],
-                $params['secure'],
-                $params['httponly']
-            );
+        if (!headers_sent()) {
+            session_regenerate_id(true);
         }
-
-        session_destroy();
     }
 
     /**
