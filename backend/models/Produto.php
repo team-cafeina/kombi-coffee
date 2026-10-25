@@ -43,6 +43,19 @@ final class Produto
     }
 
     /**
+     * Busca um produto pelo SKU (usado para garantir que seja único).
+     */
+    public function findBySku(string $sku): ?array
+    {
+        $stmt = $this->pdo->prepare('SELECT id, sku FROM produtos WHERE sku = :sku LIMIT 1');
+        $stmt->execute(['sku' => $sku]);
+
+        $produto = $stmt->fetch();
+
+        return $produto ?: null;
+    }
+
+    /**
      * Cadastra um produto e retorna o id gerado.
      */
     public function create(array $data): int
