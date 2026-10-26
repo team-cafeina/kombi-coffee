@@ -16,6 +16,10 @@ database.sql
 
 Ele deve permitir que outro integrante da equipe consiga criar a estrutura básica do banco utilizando o phpMyAdmin.
 
+## Modelo visual
+
+O diagrama ER do banco está em [`docs/database-diagram.md`](../docs/database-diagram.md).
+
 ## Regras
 
 - Não exporte dados pessoais reais;
