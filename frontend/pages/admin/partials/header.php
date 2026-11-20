@@ -30,6 +30,8 @@ if (empty($_SESSION['csrf_token'])) {
 
             <div class="d-flex align-items-center gap-3">
                 <a class="nav-link text-white-50 small d-none d-md-inline" href="produtos.php">Produtos</a>
+                <a class="nav-link text-white-50 small d-none d-md-inline" href="estoque.php">Estoque</a>
+                <a class="nav-link text-white-50 small d-none d-md-inline" href="pedidos.php">Pedidos</a>
                 <span class="navbar-text small"><?= e($user['name']) ?> (<?= e($user['role']) ?>)</span>
                 <a class="btn btn-outline-light btn-sm" href="../logout.php">Sair</a>
             </div>
