@@ -32,7 +32,12 @@ if (empty($_SESSION['csrf_token'])) {
                 <a class="nav-link text-white-50 small d-none d-md-inline" href="produtos.php">Produtos</a>
                 <a class="nav-link text-white-50 small d-none d-md-inline" href="estoque.php">Estoque</a>
                 <a class="nav-link text-white-50 small d-none d-md-inline" href="pedidos.php">Pedidos</a>
-                <span class="navbar-text small"><?= e($user['name']) ?> (<?= e($user['role']) ?>)</span>
+                <?php $usuarioCabecalho = $user ?? ($_SESSION['user'] ?? null); ?>
+                <?php if ($usuarioCabecalho !== null): ?>
+                    <span class="navbar-text small">
+                        <?= e($usuarioCabecalho['name']) ?> (<?= e($usuarioCabecalho['role']) ?>)
+                    </span>
+                <?php endif; ?>
                 <a class="btn btn-outline-light btn-sm" href="../logout.php">Sair</a>
             </div>
         </div>

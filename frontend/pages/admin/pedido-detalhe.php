@@ -8,6 +8,7 @@ require_once __DIR__ . '/../../../backend/config/bootstrap.php';
 
 $auth = new Auth($pdo);
 $auth->requireLogin('../login.php');
+$user = $auth->user();
 
 $pedidoId = (int) (filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT) ?: 0);
 $pedidoModel = new Pedido($pdo);
