@@ -143,7 +143,8 @@ CREATE TABLE IF NOT EXISTS pedidos_itens (
 CREATE TABLE IF NOT EXISTS movimentacoes_estoque (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     produto_id INT UNSIGNED NOT NULL,
-    usuario_id INT UNSIGNED NOT NULL,
+    -- NULL = movimentação gerada pelo cliente no cardápio (sem login)
+    usuario_id INT UNSIGNED NULL,
     tipo ENUM('entrada', 'saida') NOT NULL,
     quantidade INT UNSIGNED NOT NULL,
     observacao VARCHAR(255) NULL,

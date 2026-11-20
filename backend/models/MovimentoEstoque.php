@@ -24,10 +24,11 @@ final class MovimentoEstoque
      */
     public function registrar(
         int $produtoId,
-        int $usuarioId,
+        ?int $usuarioId,
         string $tipo,
         int $quantidade,
-        ?string $observacao = null
+        ?string $observacao = null,
+        bool $comTransacao = true
     ): void {
         if (!in_array($tipo, self::TIPOS, true)) {
             throw new InvalidArgumentException('Tipo de movimentação inválido.');
@@ -37,7 +38,9 @@ final class MovimentoEstoque
             throw new InvalidArgumentException('A quantidade deve ser maior que zero.');
         }
 
-        $this->pdo->beginTransaction();
+        if ($comTransacao) {
+            $this->pdo->beginTransaction();
+        }
 
         try {
             $consulta = $this->pdo->prepare(
@@ -82,9 +85,11 @@ final class MovimentoEstoque
                 'observacao' => $observacao !== null && $observacao !== '' ? $observacao : null,
             ]);
 
-            $this->pdo->commit();
+            if ($comTransacao) {
+                $this->pdo->commit();
+            }
         } catch (Throwable $erro) {
-            if ($this->pdo->inTransaction()) {
+            if ($comTransacao && $this->pdo->inTransaction()) {
                 $this->pdo->rollBack();
             }
 

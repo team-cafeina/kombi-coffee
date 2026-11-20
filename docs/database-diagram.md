@@ -166,7 +166,7 @@ erDiagram
 |---|---|---|
 | `id` | INT UNSIGNED | PK |
 | `produto_id` | INT UNSIGNED | FK → `produtos.id` |
-| `usuario_id` | INT UNSIGNED | FK → `users.id` |
+| `usuario_id` | INT UNSIGNED | FK → `users.id`; `NULL` quando a saída vem de um pedido do cardápio |
 | `tipo` | ENUM | `entrada` ou `saida` |
 | `quantidade` | INT UNSIGNED | obrigatório, maior que zero |
 | `observacao` | VARCHAR(255) | opcional |
