@@ -33,6 +33,7 @@ require_once __DIR__ . '/connection.php'; // disponibiliza $pdo
 
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Produto.php';
+require_once __DIR__ . '/../models/MovimentoEstoque.php';
 require_once __DIR__ . '/../services/Auth.php';
 
 /**
