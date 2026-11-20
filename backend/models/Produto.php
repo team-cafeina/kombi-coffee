@@ -131,6 +131,26 @@ final class Produto
     }
 
     /**
+     * Lista os produtos exibidos no cardápio público.
+     *
+     * Apenas itens com status "disponivel" aparecem na vitrine.
+     */
+    public function disponiveis(): array
+    {
+        $sql = 'SELECT p.id, p.sku, p.nome, p.descricao, p.preco_venda, p.imagem,
+                       c.nome AS categoria
+                FROM produtos p
+                INNER JOIN categorias c ON c.id = p.categoria_id
+                WHERE p.status = :status
+                ORDER BY c.nome, p.nome';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['status' => 'disponivel']);
+
+        return $stmt->fetchAll();
+    }
+
+    /**
      * Lista as categorias para os formulários.
      */
     public function categorias(): array
