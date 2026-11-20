@@ -8,6 +8,7 @@ require_once __DIR__ . '/../../../backend/config/bootstrap.php';
 
 $auth = new Auth($pdo);
 $auth->requireLogin('../login.php');
+$user = $auth->user();
 
 $categorias = (new Categoria($pdo))->all();
 $success = get_flash('success');
