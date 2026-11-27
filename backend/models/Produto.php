@@ -19,7 +19,7 @@ final class Produto
      */
     public function all(): array
     {
-        $sql = 'SELECT p.id, p.sku, p.nome, p.descricao, p.preco_venda, p.preco_custo,
+        $sql = 'SELECT p.id, p.categoria_id, p.sku, p.nome, p.descricao, p.preco_venda, p.preco_custo,
                        p.estoque, p.estoque_minimo, p.status, p.imagem,
                        c.nome AS categoria
                 FROM produtos p

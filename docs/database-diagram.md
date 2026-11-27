@@ -68,10 +68,22 @@ erDiagram
         decimal preco_unitario
     }
 
+    movimentacoes_estoque {
+        int id PK
+        int produto_id FK
+        int usuario_id FK
+        enum tipo
+        int quantidade
+        varchar observacao
+        timestamp created_at
+    }
+
     categorias ||--o{ produtos : possui
     clientes ||--o{ pedidos : realiza
     pedidos ||--o{ pedidos_itens : contem
     produtos ||--o{ pedidos_itens : compoe
+    produtos ||--o{ movimentacoes_estoque : registra
+    users ||--o{ movimentacoes_estoque : realiza
 ```
 
 ## Relacionamentos
@@ -82,6 +94,8 @@ erDiagram
 | `clientes` → `pedidos` | 1:N | `pedidos.cliente_id` | Excluir cliente só se não houver pedidos (`RESTRICT`) |
 | `pedidos` → `pedidos_itens` | 1:N | `pedidos_itens.pedido_id` | Excluir pedido remove os itens (`CASCADE`) |
 | `produtos` → `pedidos_itens` | 1:N | `pedidos_itens.produto_id` | Excluir produto só se não estiver em pedidos (`RESTRICT`) |
+| `produtos` → `movimentacoes_estoque` | 1:N | `movimentacoes_estoque.produto_id` | Preserva o histórico de entradas e saídas (`RESTRICT`) |
+| `users` → `movimentacoes_estoque` | 1:N | `movimentacoes_estoque.usuario_id` | Registra qual funcionário fez a movimentação (`RESTRICT`) |
 
 > A tabela `users` é independente: guarda as contas de acesso ao painel
 > (administradores e funcionários) e não possui chave estrangeira.
@@ -146,3 +160,17 @@ erDiagram
 | `produto_id` | INT UNSIGNED | FK → `produtos.id` |
 | `quantidade` | INT UNSIGNED | padrão `1` |
 | `preco_unitario` | DECIMAL(10,2) | preço no momento da venda |
+
+### `movimentacoes_estoque` — entradas e saídas
+| Campo | Tipo | Regra |
+|---|---|---|
+| `id` | INT UNSIGNED | PK |
+| `produto_id` | INT UNSIGNED | FK → `produtos.id` |
+| `usuario_id` | INT UNSIGNED | FK → `users.id`; `NULL` quando a saída vem de um pedido do cardápio |
+| `tipo` | ENUM | `entrada` ou `saida` |
+| `quantidade` | INT UNSIGNED | obrigatório, maior que zero |
+| `observacao` | VARCHAR(255) | opcional |
+| `created_at` | TIMESTAMP | data/hora da movimentação |
+
+> Cada movimentação atualiza `produtos.estoque` na mesma transação. Uma saída nunca
+> pode deixar o saldo negativo — o sistema bloqueia e exibe uma mensagem.

@@ -15,8 +15,15 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../backend/config/bootstrap.php';
 
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 $produtoModel = new Produto($pdo);
 $produtos = $produtoModel->disponiveis();
+$carrinho = new Carrinho();
+$avisoErro = get_flash('error');
+$avisoSucesso = get_flash('success');
 
 // Agrupa os produtos por categoria mantendo a ordem alfabética.
 $categorias = [];
@@ -194,6 +201,12 @@ $pageTitle = 'Cardápio';
         <div class="collapse navbar-collapse" id="cardapioNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link active" href="cardapio.php">Cardápio</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrinho.php">
+                        Sacola
+                        <span class="badge text-bg-light"><?= $carrinho->quantidadeItens() ?></span>
+                    </a>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="login.php">Área da equipe</a></li>
             </ul>
         </div>
@@ -211,6 +224,14 @@ $pageTitle = 'Cardápio';
 
 <main class="py-5">
     <div class="container">
+        <?php if ($avisoSucesso !== null): ?>
+            <div class="alert alert-success" role="alert"><?= e($avisoSucesso) ?></div>
+        <?php endif; ?>
+
+        <?php if ($avisoErro !== null): ?>
+            <div class="alert alert-danger" role="alert"><?= e($avisoErro) ?></div>
+        <?php endif; ?>
+
         <?php if ($categorias === []): ?>
             <div class="kc-vazio">
                 <p class="mb-1 fw-semibold">Nenhum produto disponível no momento.</p>
@@ -256,10 +277,32 @@ $pageTitle = 'Cardápio';
                                         </div>
 
                                         <?php if (trim((string) $produto['descricao']) !== ''): ?>
-                                            <p class="kc-descricao mb-0">
+                                            <p class="kc-descricao mb-2">
                                                 <?= e($produto['descricao']) ?>
                                             </p>
                                         <?php endif; ?>
+
+                                        <form
+                                            method="post"
+                                            action="carrinho-adicionar.php"
+                                            class="d-flex gap-2 align-items-center mt-auto"
+                                        >
+                                            <input type="hidden" name="produto_id" value="<?= (int) $produto['id'] ?>">
+                                            <input type="hidden" name="csrf_token" value="<?= e($_SESSION['csrf_token']) ?>">
+                                            <input
+                                                type="number"
+                                                name="quantidade"
+                                                value="1"
+                                                min="1"
+                                                class="form-control form-control-sm"
+                                                style="width: 72px;"
+                                                aria-label="Quantidade de <?= e($produto['nome']) ?>"
+                                                required
+                                            >
+                                            <button type="submit" class="btn btn-sm btn-success">
+                                                Adicionar
+                                            </button>
+                                        </form>
                                     </div>
                                 </article>
                             </div>

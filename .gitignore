@@ -41,4 +41,4 @@ Desktop.ini
 # Dependências futuras, caso sejam adicionadas
 # ==========================================================
 /vendor/
-/node_modules/
+node_modules/

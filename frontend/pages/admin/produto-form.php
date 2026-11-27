@@ -54,6 +54,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $form['status'] = trim((string) ($_POST['status'] ?? ''));
     $form['imagem'] = trim((string) ($_POST['imagem'] ?? ''));
 
+    // Upload opcional: sobrescreve o campo de texto com o caminho do arquivo enviado.
+    if (
+        isset($_FILES['imagem_arquivo'])
+        && is_array($_FILES['imagem_arquivo'])
+        && ($_FILES['imagem_arquivo']['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE
+    ) {
+        $arquivo = $_FILES['imagem_arquivo'];
+
+        if (($arquivo['error'] ?? UPLOAD_ERR_OK) !== UPLOAD_ERR_OK) {
+            $erros[] = 'Falha ao enviar a imagem. Tente novamente.';
+        } elseif (($arquivo['size'] ?? 0) > 2 * 1024 * 1024) {
+            $erros[] = 'A imagem deve ter no máximo 2 MB.';
+        } else {
+            $info = new finfo(FILEINFO_MIME_TYPE);
+            $mime = (string) $info->file($arquivo['tmp_name']);
+            $extensoes = [
+                'image/jpeg' => 'jpg',
+                'image/png' => 'png',
+                'image/webp' => 'webp',
+            ];
+
+            if (!isset($extensoes[$mime])) {
+                $erros[] = 'Formato inválido. Use uma imagem JPG, PNG ou WebP.';
+            } else {
+                $pasta = dirname(__DIR__, 2) . '/assets/images/produtos';
+
+                if (!is_dir($pasta) && !mkdir($pasta, 0775, true) && !is_dir($pasta)) {
+                    $erros[] = 'Não foi possível criar a pasta de imagens.';
+                } else {
+                    $nomeArquivo = 'produto-' . bin2hex(random_bytes(8)) . '.' . $extensoes[$mime];
+
+                    if (move_uploaded_file($arquivo['tmp_name'], $pasta . '/' . $nomeArquivo)) {
+                        $form['imagem'] = 'assets/images/produtos/' . $nomeArquivo;
+                    } else {
+                        $erros[] = 'Não foi possível salvar a imagem enviada.';
+                    }
+                }
+            }
+        }
+    }
+
     $token = (string) ($_POST['csrf_token'] ?? '');
 
     $categoriaId = filter_var($form['categoria_id'], FILTER_VALIDATE_INT);
@@ -143,6 +184,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+$srcImagem = trim($form['imagem']);
+if ($srcImagem !== '' && preg_match('#^https?://#i', $srcImagem) !== 1) {
+    $srcImagem = '../../' . ltrim($srcImagem, '/');
+}
+
 $pageTitle = $id > 0 ? 'Editar produto' : 'Novo produto';
 require __DIR__ . '/partials/header.php';
 ?>
@@ -169,7 +215,11 @@ require __DIR__ . '/partials/header.php';
 
 <div class="card shadow-sm">
     <div class="card-body p-4">
-        <form method="post" action="produto-form.php<?= $id > 0 ? '?id=' . $id : '' ?>">
+        <form
+            method="post"
+            action="produto-form.php<?= $id > 0 ? '?id=' . $id : '' ?>"
+            enctype="multipart/form-data"
+        >
             <input type="hidden" name="csrf_token" value="<?= e($_SESSION['csrf_token']) ?>">
 
             <div class="row g-3">
@@ -282,15 +332,41 @@ require __DIR__ . '/partials/header.php';
                 </div>
 
                 <div class="col-md-9">
-                    <label for="imagem" class="form-label">Imagem (URL ou caminho)</label>
+                    <label for="imagem" class="form-label">Imagem do produto</label>
                     <input
                         type="text"
                         class="form-control"
                         id="imagem"
                         name="imagem"
                         value="<?= e($form['imagem']) ?>"
-                        placeholder="assets/images/produto.jpg"
+                        placeholder="assets/images/produtos/exemplo.jpg"
                     >
+                    <div class="form-text">Ou envie um arquivo JPG, PNG ou WebP de até 2 MB.</div>
+                    <input
+                        type="file"
+                        class="form-control mt-2"
+                        id="imagem_arquivo"
+                        name="imagem_arquivo"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Prévia</label>
+                    <div
+                        class="border rounded d-flex align-items-center justify-content-center bg-light"
+                        style="height: 96px; overflow: hidden;"
+                    >
+                        <?php if ($srcImagem !== ''): ?>
+                            <img
+                                src="<?= e($srcImagem) ?>"
+                                alt="Prévia da imagem do produto"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain;"
+                            >
+                        <?php else: ?>
+                            <span class="text-body-secondary small">Sem imagem</span>
+                        <?php endif; ?>
+                    </div>
                 </div>
 
                 <div class="col-12">

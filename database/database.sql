@@ -135,6 +135,31 @@ CREATE TABLE IF NOT EXISTS pedidos_itens (
 ) ENGINE=InnoDB;
 
 -- ==========================================================
+-- MOVIMENTAÇÕES DE ESTOQUE
+-- Registro de entradas e saídas exigido pela definição do projeto.
+-- Cada movimentação atualiza o campo produtos.estoque na mesma transação.
+-- ==========================================================
+
+CREATE TABLE IF NOT EXISTS movimentacoes_estoque (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    produto_id INT UNSIGNED NOT NULL,
+    -- NULL = movimentação gerada pelo cliente no cardápio (sem login)
+    usuario_id INT UNSIGNED NULL,
+    tipo ENUM('entrada', 'saida') NOT NULL,
+    quantidade INT UNSIGNED NOT NULL,
+    observacao VARCHAR(255) NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_movimentacao_produto
+        FOREIGN KEY (produto_id) REFERENCES produtos(id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    CONSTRAINT fk_movimentacao_usuario
+        FOREIGN KEY (usuario_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+-- ==========================================================
 -- DADOS INICIAIS DE TESTE
 -- Os INSERTs usam ON DUPLICATE KEY UPDATE para poderem ser
 -- executados novamente sem duplicar registros.
