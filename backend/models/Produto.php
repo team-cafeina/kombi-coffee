@@ -19,7 +19,7 @@ final class Produto
      */
     public function all(): array
     {
-        $sql = 'SELECT p.id, p.sku, p.nome, p.descricao, p.preco_venda, p.preco_custo,
+        $sql = 'SELECT p.id, p.categoria_id, p.sku, p.nome, p.descricao, p.preco_venda, p.preco_custo,
                        p.estoque, p.estoque_minimo, p.status, p.imagem,
                        c.nome AS categoria
                 FROM produtos p
@@ -128,6 +128,26 @@ final class Produto
         $stmt = $this->pdo->prepare('DELETE FROM produtos WHERE id = :id');
 
         return $stmt->execute(['id' => $id]);
+    }
+
+    /**
+     * Lista os produtos exibidos no cardápio público.
+     *
+     * Apenas itens com status "disponivel" aparecem na vitrine.
+     */
+    public function disponiveis(): array
+    {
+        $sql = 'SELECT p.id, p.sku, p.nome, p.descricao, p.preco_venda, p.imagem,
+                       c.nome AS categoria
+                FROM produtos p
+                INNER JOIN categorias c ON c.id = p.categoria_id
+                WHERE p.status = :status
+                ORDER BY c.nome, p.nome';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['status' => 'disponivel']);
+
+        return $stmt->fetchAll();
     }
 
     /**

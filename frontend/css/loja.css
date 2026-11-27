@@ -1,0 +1,115 @@
+/* Estilos compartilhados pelas páginas públicas da loja (cardápio, sacola, checkout). */
+:root {
+    --kc-green: #3d4a1f;
+    --kc-green-soft: #6b7a3a;
+    --kc-cream: #f6f1e3;
+    --kc-red: #b23b2e;
+    --kc-ink: #23241f;
+}
+
+body {
+    color: var(--kc-ink);
+    background-color: #fffdf8;
+}
+
+.kc-navbar {
+    background-color: var(--kc-green);
+}
+
+.kc-brand {
+    font-weight: 800;
+    letter-spacing: -0.3px;
+}
+
+.kc-hero {
+    background-color: var(--kc-cream);
+    border-bottom: 4px solid var(--kc-green);
+}
+
+.kc-hero h1 {
+    color: var(--kc-green);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.kc-section-title {
+    color: var(--kc-green);
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin: 0 0 1rem;
+    display: inline-block;
+    border-bottom: 3px solid var(--kc-red);
+    padding-bottom: .35rem;
+}
+
+.kc-card {
+    border: 1px solid #e6e0cf;
+    border-radius: .75rem;
+    overflow: hidden;
+    height: 100%;
+    transition: transform .15s ease, box-shadow .15s ease;
+    background-color: #fff;
+}
+
+.kc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1.25rem rgba(61, 74, 31, .12);
+}
+
+.kc-foto {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, #e8e4d2 0%, #d7d3bd 100%);
+    overflow: hidden;
+}
+
+.kc-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.kc-foto-vazia {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kc-green-soft);
+    opacity: .55;
+}
+
+.kc-foto-vazia svg {
+    width: 64px;
+    height: 64px;
+}
+
+.kc-card .card-body {
+    padding: 1rem 1.05rem 1.15rem;
+}
+
+.kc-preco {
+    color: var(--kc-red);
+    font-weight: 800;
+    font-size: 1.15rem;
+    white-space: nowrap;
+}
+
+.kc-descricao {
+    color: #6f7066;
+    font-size: .92rem;
+}
+
+.kc-vazio {
+    background-color: var(--kc-cream);
+    border-radius: .75rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: #6f7066;
+}
+
+.kc-footer {
+    background-color: var(--kc-green);
+    color: #e9e7db;
+}
